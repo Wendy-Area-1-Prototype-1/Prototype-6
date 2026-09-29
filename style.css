@@ -1,3 +1,8 @@
+/*
+This stylesheet keeps the flower visually unchanged while ripples and a subtle
+canvas tint carry the environmental response being evaluated.
+*/
+
 :root {
     --ink: #263832;
     --cream: #f5f1e7;
@@ -72,15 +77,22 @@ h1 {
 }
 
 /* The garden briefly deepens in colour with the note, then returns to rest. */
-.garden.is-responding {
+.garden.isResponding {
     animation: garden-tint var(--response-duration) ease-out both;
 }
 
 @keyframes garden-tint {
-    0%, 100% { background-color: var(--garden); }
-    18% { background-color: #cde1c4; }
+    0%,
+    100% {
+        background-color: var(--garden);
+    }
+
+    18% {
+        background-color: #cde1c4;
+    }
 }
 
+/* The flower remains a large, stationary control while the garden responds. */
 .flower {
     position: relative;
     z-index: 1;
@@ -115,7 +127,7 @@ h1 {
     outline-offset: 7px;
 }
 
-.sound-status {
+.soundStatus {
     max-width: 100%;
     min-height: 3em;
     margin: 0;
@@ -144,11 +156,22 @@ h1 {
 
 /* Animate diameter, keeping the ring's stroke thin as it reaches the garden edges. */
 @keyframes ripple-spread {
-    0% { width: var(--ripple-size); opacity: 0; }
-    10% { opacity: 0.8; }
-    100% { width: var(--ripple-end); opacity: 0; }
+    0% {
+        width: var(--ripple-size);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    100% {
+        width: var(--ripple-end);
+        opacity: 0;
+    }
 }
 
+/* Narrow screens keep the heading readable without changing ripple behaviour. */
 @media (max-width: 340px) {
     h1 {
         font-size: clamp(1rem, 12.5vw, 1.8rem);

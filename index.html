@@ -10,6 +10,10 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <!--
+    This prototype tests whether ripples from the surrounding garden communicate
+    that the unchanged central flower has produced a sound.
+    -->
     <main class="prototype">
         <header class="intro">
             <p class="eyebrow">GARDEN OF SOUNDS</p>
@@ -19,8 +23,14 @@
 
         <section class="garden" aria-label="Garden canvas">
             <div class="ripples" aria-hidden="true"></div>
-            <button id="flower" class="flower" type="button" disabled
-                    aria-label="Play flower sound" aria-describedby="instruction">
+            <button
+                id="flower"
+                class="flower"
+                type="button"
+                disabled
+                aria-label="Play flower sound"
+                aria-describedby="instruction"
+            >
                 <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
                     <g fill="currentColor">
                         <circle cx="60" cy="29" r="20" />
@@ -34,7 +44,9 @@
             </button>
         </section>
 
-        <p id="sound-status" class="sound-status" role="status" aria-atomic="true">Loading sound…</p>
+        <p id="sound-status" class="soundStatus" role="status" aria-atomic="true">
+            Loading sound…
+        </p>
         <noscript>Enable JavaScript to play the flower sound.</noscript>
     </main>
 </body>

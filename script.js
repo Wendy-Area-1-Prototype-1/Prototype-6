@@ -130,7 +130,9 @@ async function playFlower() {
         if (!flowerSynth) {
             // The same quiet monophonic voice as Prototype 5 isolates visual feedback.
             flowerSynth = new Tone.Synth({
-                oscillator: { type: "sine" },
+                oscillator: {
+                    type: "sine"
+                },
                 envelope: {
                     attack: 0.025,
                     decay: 0.08,
